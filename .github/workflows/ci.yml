@@ -27,7 +27,7 @@ jobs:
       contents: write
       pull-requests: write
     # Pinned to the pr-autofix revision under test — bump when smoking a new version.
-    uses: trained-assist/pr-autofix/.github/workflows/autofix-callable.yml@c08216e12d04518b9a5958bbb84f51bf7464493c
+    uses: trained-assist/pr-autofix/.github/workflows/autofix-callable.yml@56bc0fab7bf79441e901a547d4af2e5fbab8845e
     with:
       pr_number: ${{ github.event.pull_request.number }}
       original_branch: ${{ github.head_ref }}
