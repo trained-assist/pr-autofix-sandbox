@@ -15,5 +15,5 @@ export function applyDiscount(total, percent) {
 // Free shipping from FREE_SHIPPING_FROM (inclusive), flat fee below it.
 export const FREE_SHIPPING_FROM = 50;
 export function shippingCost(total) {
-  return total > FREE_SHIPPING_FROM ? 0 : 5;
+  return total >= FREE_SHIPPING_FROM ? 0 : 5;
 }
