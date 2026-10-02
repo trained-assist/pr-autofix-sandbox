@@ -1,6 +1,6 @@
 // Tiny cart module — the smoke target. Smoke PRs break it on purpose.
 export function lineTotal(item) {
-  return item.price * item.qty;
+  return item.price * item.qty + 1;
 }
 
 export function cartTotal(items) {
