@@ -14,24 +14,3 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
-
-  autofix:
-    needs: [ci]
-    if: |
-      always() &&
-      github.event_name == 'pull_request' &&
-      !github.event.pull_request.draft &&
-      needs.ci.result == 'failure' &&
-      !startsWith(github.head_ref, 'fix/ci-')
-    permissions:
-      contents: write
-      pull-requests: write
-    # Pinned to the pr-autofix revision under test — bump when smoking a new version.
-    uses: trained-assist/pr-autofix/.github/workflows/autofix-callable.yml@v1.5.3
-    with:
-      pr_number: ${{ github.event.pull_request.number }}
-      original_branch: ${{ github.head_ref }}
-      run_id: ${{ github.run_id }}
-    secrets:
-      openrouter_api_key: ${{ secrets.OPENROUTER_API_KEY }}
-      gh_token: ${{ secrets.AUTOFIX_PAT || github.token }}
